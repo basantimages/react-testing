@@ -1,0 +1,45 @@
+Ans A 1 :
+
+We use react memo for skipping re-rendering when props are unchanged.
+
+
+
+Ans A 2 :
+
+We should avoid using React Memo if the component is light and renders with multiple props or if we are working with class based components.
+
+
+
+Ans A 3 :
+
+We used React Memo on Demooutput component because it is the parent of the Myparagraph component. So if a parent is not re-evaluated, its child is also not get evaluated.
+
+
+
+Ans A 4 :
+
+Button component is re-evaluated because whenever the state change occur inside App.js, it will generate new function references inside it (if used). Since functions are just reference values, even they looks same but are not equal. And we are passing a function as a onClick prop to Button. So whenever App is re-evaluated, a new prop is passed to Button hence it also get re-evaluated.
+
+
+
+Ans B 1 :
+
+useCallback stores the function inside the memory and upon next re-evaluation, it uses that previous function object. Now whenever we click on "Toggle Paragraph" button, the states will change and re-evaluation of App.js is done but since we had stored the function using usecallback, so it will not generate a new function inside the App.js and passes the previously stored function as a prop to Button. So it will now not re-evaluated.
+
+
+
+Ans B 2 :
+
+useCallback  takes a second argument as array of dependencies just like useEffect. Whenever any of the dependency get changed, a new function is created.
+
+
+
+Ans C 1 :
+
+Since we are using allowToggle inside the toggleParagraphHandler, it will actually closes over the allowToggle's value and if we use that toggleParagraphHandler function, it will refer to the old allowToggle's value. Hence we have passed this to as dependency because we want the toggleParagraphHandler function to always use latest value of allowToggle.
+
+
+
+Ans C 2 :
+
+The entire component not work without putting allowToggle in the dependency list of usecallback because then new function never gets created and toggleParagraphHandler will always refer to the old value of allowToggle which is false. Hence the app will not work is case of this falsy value as if condition will not be true anytime.

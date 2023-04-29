@@ -1,0 +1,37 @@
+Ans A 1 :
+useState doesn't get re-initialized when the function component gets re-evaluated because they are managed by react somewhere in memory and whenever we call it again, React will first compare it with previous call of state, if found called, it will not re-initialized. 
+
+
+
+Ans A 2 :
+"state gets initialized only once " as React stores them inside memory and attaches to the component, if the component is re-evaluated, React will check that if the component has a state previously defined or not, if found, it will ignore the re-initialization.
+
+
+
+Ans B 1 :
+Whenever we tries to update a state, it is not immediately changed, but scheduled by the React to change later to ensure that other tasks can be done properly, After the update, it will re-render the component.
+
+
+
+Ans B 2 :
+If we multiple state update changes in a queue then React will batch all of them to a single synchronous process where the order of state change is guaranteed.
+
+
+
+Ans C 1 :
+He is passing an array as a prop but whenever the component is re-rendered, a new array is created. And since arrays are objects hence have different reference even though they looks same. So on each re-render, the DemoList component will always receive a new prop which makes it to re-render again which the trainer don't want to do.
+
+
+
+Ans C 2 :
+Even the trainer used useMemo to store the items list, but when the parent component is re-rendered, it will create a new array and pass it down to the DemoList component which makes it to re-render again.
+
+
+
+Ans C 3 :
+items = {useMemo(() => [5,3,1,10,9], []) will ensure that it will be executed only on to the first render of App. Thereafter it will be stored to the memory and if the parent function is re-evaluated, useMemo will prevent the creation of the array again as we haven't passed anything to as its dependency.
+
+
+
+Commit ID :
+7d7c295b56bae932c8d3531f7a45f07a5a0299b6

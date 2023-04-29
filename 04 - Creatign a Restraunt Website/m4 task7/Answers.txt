@@ -1,0 +1,7 @@
+Ans 1 :
+Reducers take in two parameters: previous state and an action. Then they reduce it (read it return) to one entity: the new updated instance of state. So reducers are basically pure JS functions which take in the previous state and an action and return the newly updated state.
+
+
+
+Ans 2 :
+All done : 78821e478289f7c3e36518169e6be0b1627e668c

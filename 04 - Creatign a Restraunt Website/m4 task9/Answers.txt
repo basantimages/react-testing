@@ -1,0 +1,43 @@
+Ans A 1 :
+props : Props are the values stands for Properties and are passed to Components as an object. These are the data passed to a component functions as an html attribute.
+
+state : The state is an instance of React Component Class can be defined as an object of a set of observable properties that control the behavior of the component. The state of each component is completely independent.
+
+context : Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language. 
+
+React-DOM : React implements a browser-independent DOM system for the performance and with cross-browser compatibility. ReactDOM renders components or JSX elements to the DOM whenever React founds a change in the Virtual-DOM.
+
+
+
+Ans A 2 :
+The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. 
+
+
+
+Ans A 3 :
+Since there is no direct access or change to the DOM elements in Virtual DOM, that alone makes it extremely fast. Also react only look at the DOM elements which need to be updated and then carry out the update for it instead of re-rendering all elements and decreasing throughput and making updates to components slow.
+
+
+
+Ans B 1 :
+It all comes down to state change because everything inside React component is managed by a state. Even the context uses the state to handle the data and changes of data. For the props, they are also taken from the state. So props will change on a state change. Therefore, its all related to states.
+
+
+
+Ans B 2 :
+Whenever we click on the Toggle Paragraph button, we are changing the state of the component. It will actually re-evaluate the Function component, and on every state change, function component is executed again and again.
+
+
+
+Ans C 1 :
+The <p> flashes because we are changing the prop and using that prop to render content inside. So whenever we change the state, props get changed and contents of <p> tag re-evaluated again.
+
+
+
+Ans C 2 :
+The DemoOutput is re-evaluated because it is the part of the APP component which is a parent component. Whenever we change state of a parent component then it will also re-evaluate its child components no matter we are changing prop or not. As DemoOutput is returned by the App.js so its like a call to the DemoOutput function on calling the App function component.
+
+
+
+Ans C 3 :
+The <p> does not flashes because it will just re-evaluate the component. Since our props are not change, so the contents inside the <p> will not be re-evaluated.
